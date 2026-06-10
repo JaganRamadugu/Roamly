@@ -110,6 +110,51 @@ body {
 }
 
 #map {
-  height: 400px;
   width: 100%;
+  height: 350px;
+  border-radius: 15px;
+}
+
+.show-card {
+  margin-bottom: 1rem;
+}
+
+.show-card .card-body p {
+  margin-bottom: 0.8rem;
+}
+
+@media (max-width: 768px) {
+  #map {
+    height: 250px;
+  }
+}
+
+#filters {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+
+#filters::-webkit-scrollbar {
+  display: none;
+}
+
+.filter {
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+.search-container,
+.mobile-search {
+    width: 100%;
+}
+
+.mobile-search form {
+    width: 100%;
+}
+
+html,
+body {
+    overflow-x: hidden;
 }
