@@ -1,0 +1,1 @@
+[{"name":"ac-smzqwrb-shard-00-01.pfmwehk.mongodb.net","port":27017,"priority":0,"weight":0},{"name":"ac-smzqwrb-shard-00-02.pfmwehk.mongodb.net","port":27017,"priority":0,"weight":0},{"name":"ac-smzqwrb-shard-00-00.pfmwehk.mongodb.net","port":27017,"priority":0,"weight":0}]
