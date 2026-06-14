@@ -59,7 +59,7 @@ async function start() {
   const store = MongoStore.create({
     clientPromise: Promise.resolve(mongoose.connection.getClient()),
     crypto: {
-      secret: "mysuperseceretcode",
+      secret: process.env.SECRET,
     },
     touchAfter: 24 * 60 * 60,
   });
@@ -70,7 +70,7 @@ async function start() {
 
   const sessionOptions = {
     store,
-    secret: "mysuperseceretcode",
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
     cookie: {
