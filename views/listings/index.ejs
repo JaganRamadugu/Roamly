@@ -1,84 +1,134 @@
 <% layout("/layouts/boilerplate") %>
 <style>
-    #filters{
+    #filters-container {
         display: flex;
-        flex-wrap: wrap;
         align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 1rem;
+        gap: 1rem;
     }
-    .filter{
+
+    #filters {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        align-items: center;
+        flex-grow: 1;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    #filters::-webkit-scrollbar {
+        display: none; 
+    }
+
+    .filter {
         text-align: center;
         margin-right: 2rem;
-        margin-top: 1rem;
         opacity: 0.7;
+        transition: opacity 0.2s ease;
+        flex-shrink: 0;
     }
-    .filter:hover{
+
+    .filter:hover {
         opacity: 1;
         cursor: pointer;
     }
+
     .filter p {
         font-size: 0.8rem;
+        margin-bottom: 0;
     }
-    .tax-info{
+
+    .tax-info {
         display: none;
     }
-    .tax-toggle{
-        border: 1px solid black;
-        border-radius: 1rem;
-        height: 3rem;
-        padding: 1rem;
-        margin-left: 2rem;
+
+    .tax-toggle {
+        border: 1px solid #ced4da;
+        border-radius: 0.75rem;
+        height: 3.2rem;
+        padding: 0 1rem;
         display: flex;
         align-items: center;
+        white-space: nowrap;
+    }
+    
+    @media (max-width: 991.98px) {
+        .filter {
+            margin-right: 1.5rem;
+        }
+    }
+
+    @media (max-width: 767.98px) {
+        #filters-container {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        #filters {
+            width: 100%;
+            padding-bottom: 0.5rem;
+        }
+
+        .tax-toggle {
+            margin-left: 0;
+            width: 100%;
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
     }
 </style>
-<div id="filters">
-    <div class="filter">
-        <div><i class="fa-solid fa-fire"></i></div>
-        <p>Trending</p>
-    </div>
-    <div class="filter">
-        <div><i class="fa-solid fa-bed"></i></div>
-        <p>Rooms</p>
-    </div>
-    <div class="filter">
-        <div><i class="fa-solid fa-mountain-city"></i></div>
-        <p>Iconic Cities</p>
-    </div>
-    <div class="filter">
-        <div><i class="fa-solid fa-mountain"></i></div>
-        <p>Mountains</p>
-    </div>
-    <div class="filter">
-        <div><i class="fa-brands fa-fort-awesome"></i></div>
-        <p>Castel</p>
-    </div>
-    <div class="filter">
-        <div><i class="fa-solid fa-person-swimming"></i></div>
-        <p>Amazing Pools</p>
-    </div>
-    <div class="filter">
-        <div><i class="fa-solid fa-campground"></i></div>
-        <p>Camping</p>
-    </div>
-    <div class="filter">
-        <div><i class="fa-solid fa-tractor"></i></div>
-        <p>Farms</p>
-    </div>
-    <div class="filter">
-        <div><i class="fa-solid fa-igloo"></i></div>
-        <p>Artic</p>
+
+<div id="filters-container">
+    <div id="filters">
+        <div class="filter">
+            <div><i class="fa-solid fa-fire"></i></div>
+            <p>Trending</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-bed"></i></div>
+            <p>Bedrooms</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-mountain-city"></i></div>
+            <p>Iconic Cities</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-mountain"></i></div>
+            <p>Mountain</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-brands fa-fort-awesome"></i></div>
+            <p>Castles</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-person-swimming"></i></div>
+            <p>Amazing Pools</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-campground"></i></div>
+            <p>Camping</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-tractor"></i></div>
+            <p>Farms</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-igloo"></i></div>
+            <p>Arctic</p>
+        </div>
     </div>
 
     <div class="tax-toggle">
         <div class="form-check-reverse form-switch">
             <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-            <label class="form-check-label" for="switchCheckDefault">Display Total After Taxes</label>
+            <label class="form-check-label" for="switchCheckDefault" style="font-size: 0.9rem; font-weight: 500; cursor: pointer;">Display total with taxes</label>
         </div>
     </div>
 </div>
 
-<div class="row row-cols-lg-3 row-cols-md-2 row-cols-small-1 mt-3">
-     
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 mt-3">
     <% for(let listing of allListings){ %>
         <a href="/listings/<%= listing._id %>" class="listing-link">    
         <div class="card listing-card">
@@ -102,7 +152,7 @@
         let taxInfo = document.getElementsByClassName("tax-info");
         for(info of taxInfo){
             if(info.style.display != "inline"){
-            info.style.display="inline";
+                info.style.display="inline";
             }else{
                 info.style.display="none";
             }

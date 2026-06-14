@@ -101,8 +101,13 @@ body {
 }
 
 /* show page */
+
 .show-img {
-  height: 30vh;
+  height: 400px !important;
+  width: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  border-radius: 0.75rem;
 }
 
 .btns {
@@ -147,14 +152,14 @@ body {
 
 .search-container,
 .mobile-search {
-    width: 100%;
+  width: 100%;
 }
 
 .mobile-search form {
-    width: 100%;
+  width: 100%;
 }
 
 html,
 body {
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
