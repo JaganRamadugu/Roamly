@@ -4,7 +4,7 @@ Roamly is a full-stack accommodation listing platform inspired by Airbnb, where 
 
 ## 🌐 Live Demo
 
-https://roamly-3gnt.onrender.com
+https://roamly-3gnt.onrender.com/listings
 
 ## 📸 Features
 
