@@ -127,7 +127,7 @@ Building Roamly helped me gain hands-on experience with:
 
 **Jagan Ramadugu**
 
-LinkedIn: [Add Your LinkedIn URL]
+LinkedIn: (https://www.linkedin.com/in/jagan-ramadugu-33666031a/)
 
 GitHub: https://github.com/JaganRamadugu
 
